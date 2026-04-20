@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>ILYASS TV</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /*ILYASS TV – FINAL BUILD*/
+        :root {
+            --b: #050505;
+            --p: #0a0a0a;
+            --a: #00ff88;
+            --t: #ffffff;
+            --d: #777777;
+            --x: #111111
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Inter, sans-serif
+        }
+
+        body {
+            background: var(--b);
+            color: var(--t);
+            min-height: 100vh;
+            overflow-x: hidden
+        }
+
+        header {
+            height: 60px;
+            background: #000;
+            border-bottom: 1px solid #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000
+        }
+
+        .l {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .l span {
+            color: var(--a);
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.3)
+        }
+
+        .c {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px
+        }
+
+        .s {
+            background: var(--p);
+            border: 1px solid #1a1a1a;
+            padding: 10px 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px
+        }
+
+        .e {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: "JetBrains Mono";
+            font-size: 11px;
+            color: var(--d);
+            text-transform: uppercase
+        }
+
+        .p {
+            width: 6px;
+            height: 6px;
+            background: var(--a);
+            border-radius: 50%;
+            box-shadow: 0 0 5px var(--a);
+            animation: f 2s infinite
+        }
+
+        @keyframes f {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0.4
+            }
+        }
+
+        .bb {
+            background: 0 0;
+            border: 1px solid #222;
+            color: var(--t);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            display: none
+        }
+
+        .g {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 15px
+        }
+
+        .ca {
+            background: var(--p);
+            border: 1px solid #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: 0.2s
+        }
+
+        .ca:hover {
+            border-color: var(--a);
+            transform: translateY(-3px)
+        }
+
+        .ci {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: contain;
+            background: #000;
+            padding: 15px;
+            border-bottom: 1px solid #1a1a1a
+        }
+
+        .cn {
+            padding: 10px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis
+        }
+
+        .m {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 15px
+        }
+
+        .pa {
+            width: 100%;
+            max-width: 800px;
+            max-height: 85vh;
+            background: var(--p);
+            border: 1px solid #1a1a1a;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8)
+        }
+
+        .ph {
+            padding: 15px 20px;
+            border-bottom: 1px solid #1a1a1a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .pt h3 {
+            font-size: 16px;
+            color: var(--a)
+        }
+
+        .ps {
+            font-size: 10px;
+            color: var(--d);
+            font-family: "JetBrains Mono";
+            margin-top: 2px
+        }
+
+        .pac {
+            display: flex;
+            gap: 8px
+        }
+
+        .ab {
+            background: #1a1a1a;
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s
+        }
+
+        .ab:hover {
+            background: #222
+        }
+
+        .ab.m3u {
+            border: 1px solid var(--a);
+            color: var(--a)
+        }
+
+        .pc {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        .si {
+            background: var(--x);
+            border: 1px solid #1a1a1a;
+            padding: 12px 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px
+        }
+
+        .si:first-child {
+            border-color: var(--a);
+            background: rgba(0, 255, 136, 0.03)
+        }
+
+        .bd {
+            font-family: "JetBrains Mono";
+            font-size: 9px;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            min-width: 55px;
+            text-align: center
+        }
+
+        .bd-h {
+            background: rgba(0, 210, 255, 0.1);
+            color: #00d2ff;
+            border: 1px solid #00d2ff
+        }
+
+        .bd-d {
+            background: rgba(255, 159, 67, 0.1);
+            color: #ff9f43;
+            border: 1px solid #ff9f43
+        }
+
+        .bd-r {
+            background: rgba(255, 51, 102, 0.1);
+            color: #ff3366;
+            border: 1px solid #ff3366
+        }
+
+        .bd-s {
+            background: rgba(174, 99, 255, 0.1);
+            color: #ae63ff;
+            border: 1px solid #ae63ff
+        }
+
+        .sin {
+            flex: 1;
+            min-width: 0
+        }
+
+        .sur {
+            font-family: "JetBrains Mono";
+            font-size: 12px;
+            color: var(--d);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis
+        }
+
+        .st {
+            font-size: 9px;
+            color: var(--a);
+            font-weight: 700;
+            margin-bottom: 2px
+        }
+
+        .bc {
+            background: var(--a);
+            color: #000;
+            border: none;
+            padding: 7px 14px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            min-width: 70px
+        }
+
+        .pf {
+            padding: 12px 20px;
+            border-top: 1px solid #1a1a1a;
+            display: flex;
+            justify-content: flex-end
+        }
+
+        .ld {
+            text-align: center;
+            padding: 100px 0;
+            display: none
+        }
+
+        .sp {
+            width: 25px;
+            height: 25px;
+            border: 2px solid rgba(0, 255, 136, 0.1);
+            border-top-color: var(--a);
+            border-radius: 50%;
+            animation: r .8s linear infinite;
+            margin: 0 auto 10px
+        }
+
+        @keyframes r {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        .t-c {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3000;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            pointer-events: none
+        }
+
+        .to {
+            background: var(--a);
+            color: #000;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 8px 20px;
+            border-radius: 50px;
+            animation: i .3s ease-out
+        }
+
+        @keyframes i {
+            from {
+                transform: translateY(20px);
+                opacity: 0
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1
+            }
+        }
+
+        @media(max-width:768px) {
+            .pa {
+                border-radius: 0;
+                max-height: 100vh;
+                height: 100vh
+            }
+
+            .m {
+                padding: 0
+            }
+
+            .pac {
+                display: none
+            }
+
+            .si {
+                flex-direction: column;
+                align-items: flex-start
+            }
+
+            .bc {
+                width: 100%
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="l"><i class="fas fa-bolt"></i>ILYASS <span>TV</span></div>
+        <div id="ti" style="font-family:'JetBrains Mono';font-size:12px;color:var(--d)">00:00:00</div>
+    </header>
+    <div class="c">
+        <div class="s">
+            <div class="e">
+                <div class="p"></div><span id="nh">SYSTEM_READY</span>
+            </div><button class="bb" id="bk"><i class="fas fa-arrow-left"></i> BACK</button>
+        </div>
+        <div id="lo" class="ld">
+            <div class="sp"></div>
+            <p style="font-size:11px;color:var(--d);letter-spacing:1px">ANALYZING...</p>
+        </div>
+        <div id="gr" class="g"></div>
+    </div>
+    <div id="mo" class="m">
+        <div class="pa">
+            <div class="ph">
+                <div class="pt">
+                    <h3 id="pn">EXTRACTOR</h3>
+                    <div class="ps" id="pc">SCANNING...</div>
+                </div>
+                <div class="pac"><button class="ab" onclick="U.cb()">COPY BEST</button><button class="ab"
+                        onclick="U.ca()">COPY ALL</button><button class="ab m3u" onclick="U.em()">M3U</button></div>
+            </div>
+            <div class="pc" id="sl"></div>
+            <div class="pf"><button class="bc" style="background:#1a1a1a;color:#fff" onclick="U.cm()">CLOSE</button>
+            </div>
+        </div>
+    </div>
+    <div id="tc" class="t-c"></div>
+    <script>/*ILYASS TV – FINAL BUILD*/(function () { if (window.self !== window.top) window.top.location = window.self.location; const A = { c: "https://oneiraq.pages.dev/categories/categories.json", h: "https://oneiraq.pages.dev/categories/id/", s: "https://oneiraq.pages.dev/channels/id/" }; const U = { st: [], ex: [], an: "", init() { this.ck(); document.getElementById("bk").onclick = () => this.gb(); window.onclick = e => { if (e.target.id === "mo") this.cm() }; this.lc() }, ck() { setInterval(() => { document.getElementById("ti").innerText = new Date().toLocaleTimeString("en-US", { hour12: false }) }, 1000) }, ts(m) { const c = document.getElementById("tc"); const t = document.createElement("div"); t.className = "to"; t.innerText = m; c.appendChild(t); setTimeout(() => { t.style.opacity = "0"; setTimeout(() => t.remove(), 400) }, 2000) }, async f(u) { this.sl(true); try { const r = await fetch(u); return await r.json() } catch (e) { this.ts("ERROR"); return null } finally { this.sl(false) } }, sl(l) { document.getElementById("lo").style.display = l ? "block" : "none"; document.getElementById("gr").style.opacity = l ? "0.3" : "1" }, un(t) { document.getElementById("nh").innerText = `ENGINE // ${t.toUpperCase()}` }, r(i, t) { const g = document.getElementById("gr"); g.innerHTML = ""; if (!i || i.length === 0) return; const f = document.createDocumentFragment(); i.forEach(o => { const d = document.createElement("div"); d.className = "ca"; d.innerHTML = `<img src="${o.img || "https://placehold.co/200/000/0f8?text=TV"}" class="ci" onerror="this.src='https://placehold.co/200/000/0f8?text=ERR'"><div class="cn">${o.name || "..."}</div>`; d.onclick = () => { if (t === "c") this.lh(o.id, o.name); else this.ls(o.id, o.name) }; f.appendChild(d) }); g.appendChild(f) }, async lc() { this.st = [{ v: "c" }]; document.getElementById("bk").style.display = "none"; this.un("ROOT"); const d = await this.f(A.c); this.r(d?.data || d || [], "c") }, async lh(i, n) { this.st.push({ v: "h", i, n }); document.getElementById("bk").style.display = "block"; this.un(n); const d = await this.f(A.h + i); this.r(d?.data || d || [], "h") }, gb() { if (this.st.length <= 1) return; this.st.pop(); const l = this.st[this.st.length - 1]; if (l.v === "c") this.lc(); else this.lh(l.i, l.n) }, async ls(id, n) { this.un(`SNIFFING: ${n}`); const d = await this.f(A.s + id); this.an = n; this.ex = this.sn(d); this.sm() }, sn(o, r = new Set()) { if (!o) return []; const p = u => { const t = u.trim(); if (this.ip(t)) r.add(t) }; const k = v => { if (typeof v === "string") p(v); else if (Array.isArray(v)) v.forEach(k); else if (v && typeof v === "object") Object.values(v).forEach(k) }; k(o); return Array.from(r).map(u => ({ u, s: this.gs(u), t: this.gt(u) })).filter(x => x.s > -50).sort((a, b) => b.s - a.s) }, ip(u) { return (u.startsWith("http") || u.indexOf("rtmp://") === 0 || u.indexOf("udp://") === 0) && (u.includes(".m3u8") || u.includes(".mpd") || u.includes(".ts") || u.includes("rtmp://") || u.includes("udp://")) }, gs(u) { const l = u.toLowerCase(); let s = 0; if (l.includes("1080") || l.includes("fhd")) s += 100; else if (l.includes("720") || l.includes("hd")) s += 50; if (l.includes("master") || l.includes("index") || l.includes("live")) s += 30; if (l.includes("test") || l.includes("sample") || l.includes("backup") || l.includes("ads") || l.includes("tracking")) s -= 200; return s }, gt(u) { if (u.includes(".m3u8")) return "HLS"; if (u.includes(".mpd")) return "DASH"; if (u.indexOf("rtmp://") === 0) return "RTMP"; return "STREAM" }, gq(u) { const l = u.toLowerCase(); if (l.includes("1080") || l.includes("fhd")) return "1080P FULL HD"; if (l.includes("720") || l.includes("hd")) return "720P HD"; return "AUTO QUALITY" }, sm() { const m = document.getElementById("mo"), l = document.getElementById("sl"), c = document.getElementById("pc"); document.getElementById("pn").innerText = this.an.toUpperCase(); l.innerHTML = ""; c.innerText = `STREAMS FOUND: ${this.ex.length}`; if (this.ex.length === 0) { l.innerHTML = '<div style="text-align:center;padding:40px;color:#444">NO SOURCE</div>' } else { const f = document.createDocumentFragment(); this.ex.forEach(i => { const d = document.createElement("div"); d.className = "si"; d.innerHTML = `<div class="bd bd-${i.t[0].toLowerCase()}">${i.t}</div><div class="sin"><div class="st">${this.gq(i.u)}</div><div class="sur">${i.u}</div></div><button class="bc" onclick="U.cs('${i.u.replace(/'/g, "\\'")}',this)">COPY</button>`; f.appendChild(d) }); l.appendChild(f) } m.style.display = "flex"; document.body.style.overflow = "hidden" }, cm() { document.getElementById("mo").style.display = "none"; document.body.style.overflow = "auto"; this.un(this.an) }, async cs(u, b) { try { await navigator.clipboard.writeText(u); const o = b.innerText; b.innerText = "OK"; b.style.background = "#fff"; setTimeout(() => { b.innerText = o; b.style.background = "" }, 1000); this.ts("COPIED") } catch (e) { } }, cb() { if (this.ex.length > 0) this.cs(this.ex[0].u); this.ts("BEST COPIED") }, ca() { if (this.ex.length === 0) return; navigator.clipboard.writeText(this.ex.map(i => i.url || i.u).join("\n")); this.ts("ALL COPIED") }, em() { if (this.ex.length === 0) return; let m = "#EXTM3U\n"; this.ex.forEach((i, x) => { m += `#EXTINF:-1, ILYASS TV | ${this.an} ${x + 1}\n${i.u}\n` }); const b = new Blob([m], { type: "text/plain" }), a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = `ilyass_${this.an.replace(/\s+/g, "_")}.m3u`; a.click(); this.ts("M3U SAVED") } }; window.U = U; window.onload = () => U.init() })()</script>
+</body>
+
+</html>
